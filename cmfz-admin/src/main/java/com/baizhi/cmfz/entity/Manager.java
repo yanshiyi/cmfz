@@ -1,11 +1,13 @@
 package com.baizhi.cmfz.entity;
 
+import java.io.Serializable;
+
 /**
  * @Description 管理员实体类
  * @Author Mr.Yan
  * @Time 2018-07-05 10:42:07
  **/
-public class Manager {
+public class Manager implements Serializable{
     private Integer mgrId;
     private String mgrName;
     private String mgrPwd;

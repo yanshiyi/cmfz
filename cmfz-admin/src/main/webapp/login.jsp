@@ -56,7 +56,7 @@
                     用户名:
                 </th>
                 <td>
-                    <input type="text" name="mgrName" class="text" value="<%= mgrName%>" maxlength="20"/>
+                    <input type="text" id="mgrName" name="mgrName" class="text"  value="<%= mgrName%>"  maxlength="20"/>
                 </td>
             </tr>
             <tr>
@@ -64,7 +64,7 @@
                     密&nbsp;&nbsp;&nbsp;码:
                 </th>
                 <td>
-                    <input type="password" name="mgrPwd" class="text" value="" maxlength="20" autocomplete="off"/>
+                    <input type="password" name="mgrPwd" class="text" maxlength="20" autocomplete="off"/>
                 </td>
             </tr>
 

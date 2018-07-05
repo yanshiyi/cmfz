@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.baizhi.cmfz.dao.ManagerDAO">
 
-    <resultMap id="ManagerMap" type="com.baizhi.cmfz.entity.Manager">
+    <resultMap id="ManagerMap" type="Manager">
         <id property="mgrId" column="mgr_id"></id>
         <result property="mgrName" column="mgr_name"></result>
         <result property="mgrPwd" column="mgr_pwd"></result>
@@ -13,6 +13,6 @@
     </resultMap>
 
     <select id="selectManagerByName" resultMap="ManagerMap">
-        select * from manager where mgr_name = #{mgrName}
+        select mgr_id,mgr_name,mgr_pwd,mgr_salt,mgr_status from manager where mgr_name = #{mgrName}
 </select>
 </mapper>
