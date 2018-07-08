@@ -10,17 +10,31 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/datagrid-detailview.js"></script>
 <script type="text/javascript">
-	function addTab(menuName){
+	function addTab(menuName,menuCode,menuIcon){
 	    var exist=$("#tt").tabs("exists",menuName);
         if(exist){
             $("#tt").tabs("select",menuName);
 		}else{
-            $("#tt").tabs("add",{
-                title:menuName,
-				narrow:true,
-				closable:true,
-            });
+            if("轮播图管理"==menuName){
+					$("#tt").tabs("add",{
+					title:menuName,
+					narrow:true,
+					closable:true,
+					iconCls:menuIcon,
+					pill:false,
+					href:"${pageContext.request.contextPath}/main/picturecontroller.jsp",
+				});
+            }else{
+                $("#tt").tabs("add",{
+                    title:menuName,
+                    narrow:true,
+                    closable:true,
+                    iconCls:menuIcon,
+                    pill:false,
+                });
+            }
 		}
 
 	}
@@ -36,16 +50,14 @@
            		     var content="";
 
            		     $.each(obj.secondMenu,function(index1,obj1){
-           		         content+="<p style=\"text-align:center\"><a class=\"easyui-linkbutton\" data-options=\"iconCls:'"+obj1.menuIcon+"'\"  onclick=\" addTab('"+obj1.menuName+"') \"  >"+obj1.menuName+"</a></p>"
-					 })
-
-
+           		         content+="<p style=\"text-align:center\"><a class=\"easyui-linkbutton\" data-options=\"iconCls:'"+obj1.menuIcon+"',plain:true\"  onclick=\" addTab('"+obj1.menuName+"','"+obj1.menuCode+"','"+obj1.menuIcon+"') \"  >"+obj1.menuName+"</a></p>"
+					 });
 
            		     $("#aa").accordion("add",{
            		         title:obj.menuName,
            		         iconCls:obj.menuIcon,
 						 content:content,
-					 })
+					 });
 				 });
 			}
     	});

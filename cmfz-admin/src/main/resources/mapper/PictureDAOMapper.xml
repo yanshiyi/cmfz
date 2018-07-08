@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.cmfz.dao.PictureDAO">
+
+    <resultMap id="PictureMap" type="Picture">
+        <id property="pictureId" column="picture_id"></id>
+        <result property="pictureName" column="picture_name"></result>
+        <result property="picturePath" column="picture_path"></result>
+        <result property="pictureDate" column="picture_date"></result>
+        <result property="pictureDescription" column="picture_description"></result>
+        <result property="pictureStatus" column="picture_status"></result>
+    </resultMap>
+
+    <select id="selectAllPicture" resultMap="PictureMap">
+      SELECT
+        picture_id,
+        picture_name,
+        picture_path,
+        picture_date,
+        picture_description,
+        picture_status
+      FROM
+        picture
+      LIMIT
+        #{page},#{rows}
+
+</select>
+
+    <select id="selectPicture" resultMap="PictureMap">
+        SELECT
+        picture_id,
+        picture_name,
+        picture_path,
+        picture_date,
+        picture_description,
+        picture_status
+      FROM
+        picture
+      WHERE
+        picture_id=#{pictureId}
+    </select>
+
+    <select id="count" resultType="java.lang.Integer">
+        SELECT
+          count(picture_id)
+        FROM
+          picture
+    </select>
+
+    <insert id="insertPicture">
+        insert into picture values(#{pictureId},#{pictureName},#{picturePath},#{pictureDate},#{pictureDescription},#{pictureStatus})
+    </insert>
+
+    <update id="updatePicture">
+        update picture set picture_name=#{pictureName},picture_path=#{picturePath},picture_date=#{pictureDate},picture_Description=#{pictureDescription},picture_status=#{pictureStatus} where picture_id=#{pictureId}
+    </update>
+</mapper>
