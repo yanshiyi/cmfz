@@ -30,19 +30,13 @@ public class PictureController {
         return pictureService.queryAllPicture(page,rows);
     }
 
-    @RequestMapping("/getPicture")
-    @ResponseBody
-    public Picture getPicture(String pictureId){
-       return pictureService.queryPictureByPictureId(pictureId);
-    }
-
     @RequestMapping("/addPicture")
     @ResponseBody
     public int addPicture(Picture picture, MultipartFile file, HttpSession session){
         String name=file.getOriginalFilename();
         picture.setPictureName(name);
 
-        String realPath=session.getServletContext().getRealPath("/").replace("cmfz-admin","upload");
+        String realPath=session.getServletContext().getRealPath("/").replace("cmfz-admin","upload")+"/picture";
         String path=realPath+"/"+name;
         try {
             file.transferTo(new File(path));

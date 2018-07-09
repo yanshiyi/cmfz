@@ -21,8 +21,6 @@ public interface PictureDAO {
      **/
     public List<Picture> selectAllPicture(@Param("page") Integer page, @Param("rows") Integer rows);
 
-    public Picture selectPicture(String pictureId);
-
     public Integer count();
 
     public int insertPicture(Picture picture);

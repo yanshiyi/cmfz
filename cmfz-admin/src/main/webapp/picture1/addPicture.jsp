@@ -1,53 +1,41 @@
 <%@ page contentType="text/html;charset=utf-8" pageEncoding="utf-8" isELIgnored="false" %>
 <script type="text/javascript">
     $(function(){
-        $("#btn1").linkbutton({
+        $("#pic_btn1").linkbutton({
             text:"提交",
             onClick:function(){
-                $("#ff").form("submit",{
-                    url:"${pageContext.request.contextPath}/picture/modifyPicture",
+                $("#pic_ff1").form("submit",{
+                    url:"${pageContext.request.contextPath}/picture/addPicture",
                     onSubmit:function(){
                         return true;
                     },
                     success:function(res){
-                        $("#dd").dialog("close");
+                        $("#pic_dd").dialog("close");
                         $("#picture").datagrid({
                             url:"${pageContext.request.contextPath}/picture/getAllPicture",
                         });
-                    },
+                    }
                 });
             }
         });
-        $("#btn2").linkbutton({
+        $("#pic_btn2").linkbutton({
             text:"取消",
             onClick:function(){
-                $("#dd").dialog("close");
+                $("#pic_dd").dialog("close");
             }
         });
 
     });
 </script>
-<form id="ff" method="post">
-        <table>
+<form id="pic_ff1" method="post" enctype="multipart/form-data">
+    <table>
         <tr>
-            <td>轮播图ID:</td>
-            <td><input class="easyui-textbox" name="pictureId" style="width: 150px;" readonly="true"/></td>
-        </tr>
-        <tr>
-            <td>轮播图名称:</td>
-            <td><input class="easyui-textbox" name="pictureName" style="width: 150px;"/></td>
-        </tr>
-        <tr>
-            <td>轮播图路径:</td>
-            <td><input class="easyui-textbox" name="picturePath" style="width: 150px;" readonly="true"/></td>
+            <td>上传轮播图:</td>
+            <td><input class="easyui-filebox" name="file" style="width: 150px;" /></td>
         </tr>
         <tr>
             <td>轮播图描述:</td>
             <td><input class="easyui-textbox" name="pictureDescription" style="width: 150px;" /></td>
-        </tr>
-        <tr>
-            <td>轮播图创建时间:</td>
-            <td><input class="easyui-textbox" name="pictureDate" style="width: 150px;" readonly="true"/></td>
         </tr>
         <tr>
             <td>轮播图状态:</td>
@@ -58,10 +46,9 @@
                 </select>
             </td>
         </tr>
-
         <tr>
-            <td><a id="btn1"></a></td>
-            <td><a id="btn2"></a></td>
+            <td><a id="pic_btn1"></a></td>
+            <td><a id="pic_btn2"></a></td>
         </tr>
     </table>
 </form>

@@ -38,10 +38,6 @@ public class PictureServiceImpl implements PictureService {
             return map;
     }
 
-    public Picture queryPictureByPictureId(String pictureId){
-        return pictureDAO.selectPicture(pictureId);
-    }
-
     public int addPicture(Picture picture) {
         picture.setPictureDate(new Date());
         picture.setPictureId(UUID.randomUUID().toString().replace("-",""));

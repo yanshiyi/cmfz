@@ -29,6 +29,13 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+            <!--解决easypoi验证错误-->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>5.2.4.Final</version>
+            </dependency>
+
     </dependencies>
 
     <build>

@@ -13,6 +13,6 @@
     </resultMap>
 
     <select id="selectManagerByName" resultMap="ManagerMap">
-        select mgr_id,mgr_name,mgr_pwd,mgr_salt,mgr_status from manager where mgr_name = #{mgrName}
+        select mgr_id,mgr_name,mgr_pwd,mgr_salt,mgr_status from t_manager where mgr_name = #{mgrName}
 </select>
 </mapper>

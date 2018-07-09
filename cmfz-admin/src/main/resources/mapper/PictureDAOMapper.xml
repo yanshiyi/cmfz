@@ -22,38 +22,25 @@
         picture_description,
         picture_status
       FROM
-        picture
+        t_picture
       LIMIT
         #{page},#{rows}
 
 </select>
 
-    <select id="selectPicture" resultMap="PictureMap">
-        SELECT
-        picture_id,
-        picture_name,
-        picture_path,
-        picture_date,
-        picture_description,
-        picture_status
-      FROM
-        picture
-      WHERE
-        picture_id=#{pictureId}
-    </select>
-
     <select id="count" resultType="java.lang.Integer">
         SELECT
           count(picture_id)
         FROM
-          picture
+          t_picture
     </select>
 
     <insert id="insertPicture">
-        insert into picture values(#{pictureId},#{pictureName},#{picturePath},#{pictureDate},#{pictureDescription},#{pictureStatus})
+        insert into t_picture values(#{pictureId},#{pictureName},#{picturePath},#{pictureDate},#{pictureDescroption},#{pictureStatus})
     </insert>
 
     <update id="updatePicture">
-        update picture set picture_name=#{pictureName},picture_path=#{picturePath},picture_date=#{pictureDate},picture_Description=#{pictureDescription},picture_status=#{pictureStatus} where picture_id=#{pictureId}
+        update t_picture set picture_name=#{pictureName},picture_path=#{picturePath},picture_date=#{pictureDate},picture_Description=#{pictureDescription},picture_status=#{pictureStatus} where picture_id=#{pictureId}
     </update>
+
 </mapper>

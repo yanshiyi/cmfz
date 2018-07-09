@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.cmfz.dao.GuruDAO">
+
+    <resultMap id="GuruMap" type="Guru">
+        <id property="guruId" column="guru_id"></id>
+        <result property="guruName" column="guru_name"></result>
+        <result property="guruPhoto" column="guru_photo"></result>
+        <result property="guruDesc" column="guru_desc"></result>
+    </resultMap>
+
+    <sql id="SELECT_GURU">
+          SELECT
+            guru_id,
+            guru_name,
+            guru_photo,
+            guru_desc
+          FROM
+            t_guru
+    </sql>
+
+    <select id="selectAllGuru" resultMap="GuruMap">
+      <include refid="SELECT_GURU"/>
+      LIMIT
+        #{page},#{rows}
+
+</select>
+
+    <select id="count" resultType="java.lang.Integer">
+        SELECT
+          count(guru_id)
+        FROM
+          t_guru
+    </select>
+
+    <insert id="insertGuru">
+        insert into guru values(#{guruId},#{guruName},#{guruPhoto},#{guruDesc})
+    </insert>
+
+    <update id="updateGuru">
+        update t_guru set guru_name=#{guruName},guru_photo=#{guruPhoto},guru_desc=#{guruDesc} where guru_id=#{guruId}
+    </update>
+
+    <insert id="insertBatch">
+        insert into t_guru
+        values
+        <foreach collection="gurus" separator="," item="guru">
+            (#{guru.guruId},#{guru.guruName},#{guru.guruPhoto},#{guru.guruDesc})
+        </foreach>
+    </insert>
+
+    <select id="selectAll" resultMap="GuruMap">
+        <include refid="SELECT_GURU"/>
+    </select>
+
+    <select id="selectAllGuruByKey" resultMap="GuruMap">
+        <include refid="SELECT_GURU"/>
+        WHERE ${name}
+        LIKE  concat("%",#{value},"%")
+        LIMIT #{page},#{rows}
+    </select>
+
+    <select id="countByKey" resultType="java.lang.Integer">
+        select count(*)
+        from t_guru
+        WHERE ${name}
+        LIKE concat("%",#{value},"%")
+    </select>
+</mapper>

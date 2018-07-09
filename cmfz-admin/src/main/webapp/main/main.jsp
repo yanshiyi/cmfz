@@ -12,29 +12,19 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/datagrid-detailview.js"></script>
 <script type="text/javascript">
-	function addTab(menuName,menuCode,menuIcon){
+	function addTab(menuName,menuUrl,menuIcon){
 	    var exist=$("#tt").tabs("exists",menuName);
         if(exist){
             $("#tt").tabs("select",menuName);
 		}else{
-            if("轮播图管理"==menuName){
-					$("#tt").tabs("add",{
-					title:menuName,
-					narrow:true,
-					closable:true,
-					iconCls:menuIcon,
-					pill:false,
-					href:"${pageContext.request.contextPath}/main/picturecontroller.jsp",
-				});
-            }else{
-                $("#tt").tabs("add",{
-                    title:menuName,
-                    narrow:true,
-                    closable:true,
-                    iconCls:menuIcon,
-                    pill:false,
-                });
-            }
+			$("#tt").tabs("add",{
+			title:menuName,
+			narrow:true,
+			closable:true,
+			iconCls:menuIcon,
+			pill:false,
+			href:"${pageContext.request.contextPath}/"+menuUrl+"/"+menuUrl+".jsp",
+		});
 		}
 
 	}
@@ -50,7 +40,7 @@
            		     var content="";
 
            		     $.each(obj.secondMenu,function(index1,obj1){
-           		         content+="<p style=\"text-align:center\"><a class=\"easyui-linkbutton\" data-options=\"iconCls:'"+obj1.menuIcon+"',plain:true\"  onclick=\" addTab('"+obj1.menuName+"','"+obj1.menuCode+"','"+obj1.menuIcon+"') \"  >"+obj1.menuName+"</a></p>"
+           		         content+="<p style=\"text-align:center\"><a class=\"easyui-linkbutton\" data-options=\"iconCls:'"+obj1.menuIcon+"',plain:true\"  onclick=\" addTab('"+obj1.menuName+"','"+obj1.menuUrl+"','"+obj1.menuIcon+"') \"  >"+obj1.menuName+"</a></p>"
 					 });
 
            		     $("#aa").accordion("add",{

@@ -38,8 +38,8 @@
             m2.menu_url m2_menu_url,
             m2.menu_level m2_menu_level
         FROM
-	        menu m1
-        LEFT OUTER JOIN menu m2 ON m1.menu_id = m2.menu_parent_id
+	        t_menu m1
+        LEFT OUTER JOIN t_menu m2 ON m1.menu_id = m2.menu_parent_id
         WHERE
 	        m1.menu_level = 1
     </select>
