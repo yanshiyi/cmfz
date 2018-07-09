@@ -24,4 +24,6 @@ public interface GuruService {
     public List<Guru> queryAll();
 
     public Map<String,Object> queryGuruByKey(String name,String value,Integer page, Integer rows);
+
+    public List<Guru> queryGuruIdAndName();
 }

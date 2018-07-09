@@ -11,6 +11,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/datagrid-detailview.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/wangEditor.min.js"></script>
 <script type="text/javascript">
 	function addTab(menuName,menuUrl,menuIcon){
 	    var exist=$("#tt").tabs("exists",menuName);

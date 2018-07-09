@@ -10,7 +10,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -50,7 +49,6 @@ public class GuruController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return guruService.addGuru(guru);
     }
 
@@ -102,5 +100,11 @@ public class GuruController {
     @ResponseBody
     public Map<String,Object> getGuruByKey(String name,String value, Integer page, Integer rows){
         return guruService.queryGuruByKey(name,value,page,rows);
+    }
+
+    @RequestMapping("/getGuruIdAndName")
+    @ResponseBody
+    public List<Guru> getGuruIdAndName(){
+        return guruService.queryGuruIdAndName();
     }
 }

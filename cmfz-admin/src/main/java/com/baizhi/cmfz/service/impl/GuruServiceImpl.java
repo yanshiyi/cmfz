@@ -55,4 +55,8 @@ public class GuruServiceImpl implements GuruService {
         map.put("rows",gurus);
         return map;
     }
+
+    public List<Guru> queryGuruIdAndName() {
+        return guruDAO.selectGuruIdAndName();
+    }
 }

@@ -68,4 +68,12 @@
         WHERE ${name}
         LIKE concat("%",#{value},"%")
     </select>
+
+    <select id="selectGuruIdAndName" resultMap="GuruMap">
+        SELECT
+        guru_id,
+        guru_name
+        FROM
+        t_guru
+    </select>
 </mapper>
