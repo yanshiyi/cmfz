@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * @Description
@@ -33,13 +34,17 @@ public class PictureController {
     @RequestMapping("/addPicture")
     @ResponseBody
     public int addPicture(Picture picture, MultipartFile file, HttpSession session){
-        String name=file.getOriginalFilename();
-        picture.setPictureName(name);
+        String filename=file.getOriginalFilename();
+        picture.setPictureName(filename);
+        String suffix = filename.substring(filename.lastIndexOf("."), filename.length());
+        String prefix = UUID.randomUUID().toString().replace("-", "");
+        String name=prefix+suffix;
+        picture.setPicturePath(name);
 
-        String realPath=session.getServletContext().getRealPath("/").replace("cmfz-admin","upload")+"/picture";
-        String path=realPath+"/"+name;
+        String realPath=session.getServletContext().getRealPath("/").replace("cmfz-admin","upload")+"/picture/"+name;
+
         try {
-            file.transferTo(new File(path));
+            file.transferTo(new File(realPath));
         } catch (IOException e) {
             e.printStackTrace();
         }

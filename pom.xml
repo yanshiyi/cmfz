@@ -210,6 +210,7 @@
         </dependency>
         <!-- log end -->
 
+        <!--加密-->
         <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
         <dependency>
             <groupId>commons-codec</groupId>
@@ -217,7 +218,7 @@
             <version>1.9</version>
         </dependency>
 
-
+        <!--easyuipoi 批量导入导出-->
         <dependency>
             <groupId>cn.afterturn</groupId>
             <artifactId>easypoi-base</artifactId>
@@ -248,6 +249,15 @@
             <artifactId>easypoi-annotation</artifactId>
             <version>3.1.0</version>
         </dependency>
+
+        <!--aop框架-->
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.7.1</version>
+        </dependency>
+
 
     </dependencies>
 

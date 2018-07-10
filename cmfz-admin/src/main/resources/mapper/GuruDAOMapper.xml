@@ -36,7 +36,7 @@
     </select>
 
     <insert id="insertGuru">
-        insert into guru values(#{guruId},#{guruName},#{guruPhoto},#{guruDesc})
+        insert into t_guru(guru_name,guru_photo,guru_desc) values(#{guruName},#{guruPhoto},#{guruDesc})
     </insert>
 
     <update id="updateGuru">

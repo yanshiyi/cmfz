@@ -36,11 +36,11 @@
     </select>
 
     <insert id="insertPicture">
-        insert into t_picture values(#{pictureId},#{pictureName},#{picturePath},#{pictureDate},#{pictureDescroption},#{pictureStatus})
+        insert into t_picture values(#{pictureId},#{pictureName},#{picturePath},#{pictureDate},#{pictureDescription},#{pictureStatus})
     </insert>
 
     <update id="updatePicture">
-        update t_picture set picture_name=#{pictureName},picture_path=#{picturePath},picture_date=#{pictureDate},picture_Description=#{pictureDescription},picture_status=#{pictureStatus} where picture_id=#{pictureId}
+        update t_picture set picture_name=#{pictureName},picture_Description=#{pictureDescription},picture_status=#{pictureStatus} where picture_id=#{pictureId}
     </update>
 
 </mapper>

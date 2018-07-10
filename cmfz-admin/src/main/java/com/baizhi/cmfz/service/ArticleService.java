@@ -8,5 +8,5 @@ import com.baizhi.cmfz.entity.Article;
  * @Time 2018-07-09 21:03:31
  **/
 public interface ArticleService {
-    public void addArticle(Article article);
+    public Integer addArticle(Article article);
 }

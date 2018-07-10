@@ -39,6 +39,7 @@ public class ManagerController {
                     cookie.setPath(session.getServletContext().getContextPath());
                     cookie.setMaxAge(60 * 60 * 24 * 7);//保存7天
                     response.addCookie(cookie);
+                    session.setAttribute("manager",mgr);
                 } else {
                     Cookie cookie = null;
                     try {
@@ -49,8 +50,9 @@ public class ManagerController {
                     cookie.setPath(session.getServletContext().getContextPath());
                     cookie.setMaxAge(-1);//删除
                     response.addCookie(cookie);
+                    session.setAttribute("manager",mgr);
                 }
-                return "index";
+                return "redirect:/main/main.jsp";
             }
         }
         return "redirect:/login.jsp";

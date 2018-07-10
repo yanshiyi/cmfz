@@ -21,8 +21,8 @@ public interface PictureService {
      **/
     public Map<String,Object> queryAllPicture(Integer page,Integer rows);
 
-    public int addPicture(Picture picture);
+    public Integer addPicture(Picture picture);
 
-    public int modifyPicture(Picture picture);
+    public Integer modifyPicture(Picture picture);
 
 }

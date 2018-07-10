@@ -19,13 +19,13 @@ public interface GuruDAO {
 
     public int updateGuru(Guru guru);
 
-    public void insertBatch(@Param("gurus") List<Guru> gurus);
+    public int insertBatch(@Param("gurus") List<Guru> gurus);
 
     public List<Guru> selectAll();
 
     public List<Guru> selectAllGuruByKey(@Param("name") String name,@Param("value") String value,@Param("page") Integer page, @Param("rows") Integer rows);
 
-    public Integer countByKey(@Param("name") String name,@Param("value") String value);
+    public int countByKey(@Param("name") String name,@Param("value") String value);
 
     public List<Guru> selectGuruIdAndName();
 }

@@ -15,11 +15,11 @@ public interface GuruService {
 
     public Map<String,Object> queryAllGuru(Integer page, Integer rows);
 
-    public int addGuru(Guru guru);
+    public Integer addGuru(Guru guru);
 
-    public int modifyGuru(Guru guru);
+    public Integer modifyGuru(Guru guru);
 
-    public void addGurus(List<Guru> gurus);
+    public Integer addGurus(List<Guru> gurus);
 
     public List<Guru> queryAll();
 

@@ -46,7 +46,7 @@ public class ArticleController {
 
     @RequestMapping("/addArticle")
     @ResponseBody
-    public void addArticle(Article article){
-        articleService.addArticle(article);
+    public int addArticle(Article article){
+        return articleService.addArticle(article);
     }
 }

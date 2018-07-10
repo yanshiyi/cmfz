@@ -8,5 +8,5 @@ import com.baizhi.cmfz.entity.Article;
  * @Time 2018-07-09 20:58:53
  **/
 public interface ArticleDAO {
-    public void insertArticle(Article article);
+    public int insertArticle(Article article);
 }

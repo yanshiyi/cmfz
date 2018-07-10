@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * @Description
@@ -41,9 +42,12 @@ public class GuruController {
     @RequestMapping("/addGuru")
     @ResponseBody
     public int addGuru(Guru guru, MultipartFile file,HttpSession session){
-        String photo = file.getOriginalFilename();
-        guru.setGuruPhoto(photo);
-        String path=session.getServletContext().getRealPath("/").replace("cmfz-admin","upload")+"/shangshi/"+photo;
+        String filename = file.getOriginalFilename();
+        String suffix = filename.substring(filename.lastIndexOf("."), filename.length());
+        String prefix = UUID.randomUUID().toString().replace("-", "");
+        String name=prefix+suffix;
+        guru.setGuruPhoto(name);
+        String path=session.getServletContext().getRealPath("/").replace("cmfz-admin","upload")+"/guru/"+name;
         try {
             file.transferTo(new File(path));
         } catch (IOException e) {
@@ -55,9 +59,12 @@ public class GuruController {
     @RequestMapping("/modifyGuru")
     @ResponseBody
     public int modifyGuru(Guru guru,MultipartFile file,HttpSession session){
-        String photo = file.getOriginalFilename();
-        guru.setGuruPhoto(photo);
-        String path=session.getServletContext().getRealPath("/").replace("cmfz-admin","upload")+"/shangshi/"+photo;
+        String filename = file.getOriginalFilename();
+        String suffix = filename.substring(filename.lastIndexOf("."), filename.length());
+        String prefix = UUID.randomUUID().toString().replace("-", "");
+        String name=prefix+suffix;
+        guru.setGuruPhoto(name);
+        String path=session.getServletContext().getRealPath("/").replace("cmfz-admin","upload")+"/guru/"+name;
         try {
             file.transferTo(new File(path));
         } catch (IOException e) {

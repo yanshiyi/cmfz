@@ -22,7 +22,7 @@
             pageSize:5,
             detailFormatter: function(rowIndex, rowData){
                 return '<table><tr>' +
-                    '<td rowspan=2 style="border:0"><img src="${pageContext.request.contextPath}/upload/shangshi/' + rowData.guruPhoto + '" style="height:50px;"></td>' +
+                    '<td rowspan=2 style="border:0"><img src="${pageContext.request.contextPath}/upload/guru/' + rowData.guruPhoto + '" style="height:50px;"></td>' +
                     '<td style="border:0">' +
                     '</td>' +
                     '</tr></table>';
@@ -47,7 +47,7 @@
     });
 
 
-    function add(){
+    function addGuru(){
         $("#guru_dd").dialog({
             title: "新增上师",
             width: 400,
@@ -60,7 +60,7 @@
             href:"${pageContext.request.contextPath}/guru1/addGuru.jsp",
         });
     }
-    function modify(){
+    function modifyGuru(){
         var rowData = $("#guru").datagrid("getSelected");
         $("#guru_dd").dialog({
             title: "修改信息",
@@ -85,8 +85,8 @@
 
 <table id="guru"></table>
 <div id="guru_td" style="display:none">
-    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true,text:'修改上师'" onclick="modify()"></a>
-    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true,text:'新增上师'" onclick="add()"></a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true,text:'修改上师'" onclick="modifyGuru()"></a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true,text:'新增上师'" onclick="addGuru()"></a>
     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true,text:'帮助'"></a>
     <a id="guru_batch" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true,text:'批量插入'"></a>
     <a class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true,text:'导出'" href="${pageContext.request.contextPath}/guru/export"></a>

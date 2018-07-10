@@ -21,8 +21,8 @@ public class ArticleServiceImpl implements ArticleService{
     @Autowired
     private ArticleDAO articleDAO;
 
-    public void addArticle(Article article) {
+    public Integer addArticle(Article article) {
         article.setArticleCreatedate(new Date());
-        articleDAO.insertArticle(article);
+        return articleDAO.insertArticle(article);
     }
 }

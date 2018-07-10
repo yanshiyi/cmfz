@@ -43,7 +43,7 @@
     });
 
 
-    function add(){
+    function addPic(){
         $("#pic_dd").dialog({
             title: "新增轮播图",
             width: 400,
@@ -56,7 +56,7 @@
             href:"${pageContext.request.contextPath}/picture1/addPicture.jsp",
         });
     }
-    function modify(){
+    function modifyPic(){
         var rowData = $("#picture").datagrid("getSelected");
         $("#pic_dd").dialog({
             title: "修改信息",
@@ -75,8 +75,8 @@
 
 <table id="picture"></table>
 <div id="pic_td" style="display:none">
-    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true,text:'修改轮播图'" onclick="modify()"></a>
-    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true,text:'新增轮播图'" onclick="add()"></a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true,text:'修改轮播图'" onclick="modifyPic()"></a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true,text:'新增轮播图'" onclick="addPic()"></a>
     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true,text:'帮助'"></a>
 </div>
 <div id="pic_dd" style="display:none;"align="center">

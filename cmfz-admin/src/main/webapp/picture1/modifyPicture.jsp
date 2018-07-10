@@ -9,7 +9,7 @@
                     onSubmit:function(){
                         return true;
                     },
-                    success:function(res){
+                    success:function(){
                         $("#pic_dd").dialog("close");
                         $("#picture").datagrid({
                             url:"${pageContext.request.contextPath}/picture/getAllPicture",
@@ -38,16 +38,8 @@
             <td><input class="easyui-textbox" name="pictureName" style="width: 150px;"/></td>
         </tr>
         <tr>
-            <td>轮播图路径:</td>
-            <td><input class="easyui-textbox" name="picturePath" style="width: 150px;" readonly="true"/></td>
-        </tr>
-        <tr>
             <td>轮播图描述:</td>
             <td><input class="easyui-textbox" name="pictureDescription" style="width: 150px;" /></td>
-        </tr>
-        <tr>
-            <td>轮播图创建时间:</td>
-            <td><input class="easyui-textbox" name="pictureDate" style="width: 150px;" readonly="true"/></td>
         </tr>
         <tr>
             <td>轮播图状态:</td>

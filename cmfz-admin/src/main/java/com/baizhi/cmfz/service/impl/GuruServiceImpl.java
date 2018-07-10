@@ -33,15 +33,15 @@ public class GuruServiceImpl implements GuruService {
         return map;
     }
 
-    public int addGuru(Guru guru) {
+    public Integer addGuru(Guru guru) {
         return guruDAO.insertGuru(guru);
     }
 
-    public int modifyGuru(Guru guru) {
+    public Integer modifyGuru(Guru guru) {
         return guruDAO.updateGuru(guru);
     }
 
-    public void addGurus(List<Guru> gurus){guruDAO.insertBatch(gurus);}
+    public Integer addGurus(List<Guru> gurus){return guruDAO.insertBatch(gurus);}
 
     public List<Guru> queryAll(){
         return guruDAO.selectAll();

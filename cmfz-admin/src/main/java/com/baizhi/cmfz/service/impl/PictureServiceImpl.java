@@ -38,14 +38,13 @@ public class PictureServiceImpl implements PictureService {
             return map;
     }
 
-    public int addPicture(Picture picture) {
+    public Integer addPicture(Picture picture) {
         picture.setPictureDate(new Date());
         picture.setPictureId(UUID.randomUUID().toString().replace("-",""));
-        picture.setPicturePath(picture.getPictureName());
         return pictureDAO.insertPicture(picture);
     }
 
-    public int modifyPicture(Picture picture) {
+    public Integer modifyPicture(Picture picture) {
         return pictureDAO.updatePicture(picture);
     }
 
