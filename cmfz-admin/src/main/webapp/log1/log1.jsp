@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" pageEncoding="utf-8" isELIgnored="false" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <script type="text/javascript">
     $(function(){
         $("#log").datagrid({
@@ -26,6 +27,7 @@
     });
 
 </script>
-
+<shiro:hasPermission name="log:query">
 <table id="log"></table>
+</shiro:hasPermission>
 </div>

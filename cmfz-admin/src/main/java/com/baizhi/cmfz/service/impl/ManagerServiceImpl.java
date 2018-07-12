@@ -29,14 +29,7 @@ public class ManagerServiceImpl implements ManagerService{
      *@Exception
      **/
     @Override
-    public Manager login(Manager manager) {
-        Manager mgr = managerDAO.selectManagerByName(manager.getMgrName());
-        if(mgr!=null){
-           String pwd = DigestUtils.md5Hex(manager.getMgrPwd() + mgr.getMgrSalt());
-           if(mgr.getMgrPwd().equals(pwd)){
-               return mgr;
-           }
-        }
-        return null;
+    public Manager queryManagerByName(String mgrName) {
+        return managerDAO.selectManagerByName(mgrName);
     }
 }

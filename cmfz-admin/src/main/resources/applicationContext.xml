@@ -46,4 +46,6 @@
     <!--指定-->
     <bean class="com.baizhi.cmfz.aspectjaop.MyAdvice" id="myAdvice"/>
 
+    <import resource="applicationContext-shiro.xml" />
+
 </beans>

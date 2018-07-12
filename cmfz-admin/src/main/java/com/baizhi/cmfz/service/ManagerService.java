@@ -16,5 +16,5 @@ public interface ManagerService {
      *@Return com.baizhi.cmfz.entity.Manager
      *@Exception
      **/
-    public Manager login(Manager manager);
+    public Manager queryManagerByName(String mgrName);
 }
